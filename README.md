@@ -39,35 +39,7 @@ The project has **two versions**:
 ### 3. Additional Fun
 - **Pixel-art cards** and playful fonts for a gamelike interface  
 - **Audio playback** for a cheerful experience  
-- **Randomization** for recipes and music suggestions  
-
----
-
-## 📂 Folder Structure
-
-## 📂 Folder Structure
-
-petpal/
-│
-├─ terminal_version/
-│ ├─ main.py # Terminal interface
-│ ├─ utils.py # Helper functions
-│ ├─ recipes.json
-│ ├─ harmful_ingredients.json
-│ ├─ pet_behaviors.json
-│
-├─ docs/ # Web version (GitHub Pages)
-│ ├─ index.html
-│ ├─ style.css
-│ ├─ script.js
-│ └─ data/
-│ ├─ recipes.json
-│ ├─ harmful_ingredients.json
-│ └─ pet_behaviors.json
-│
-├─ requirements.txt # Python dependencies
-└─ README.md
-
+- **Randomization** for recipes and music suggestions 
 
 ---
 
