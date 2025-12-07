@@ -42,5 +42,5 @@ The project has **two versions**:
 ### Acknowledgements
 This project was developed by Hasya Addini. Some code snippets and design guidance were assisted by ChatGPT (OpenAI), used as a coding assistant to help implement features and organize the project.
 
-## Reflection
+#### Reflection
 I think I could have done so much better but unfortunately I did not push myself far enough, but I got to admit that I do love doing this project so I quite enjoy it. Thanks to our professor who keep telling us to love our projects I guess :3.
