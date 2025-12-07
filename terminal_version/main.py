@@ -1,48 +1,42 @@
-from utils import load_json, classify_food, check_ingredient, classify_pet_behavior
+import json
+from utils import classify_food, check_ingredient, check_mood
+
+def load_data():
+    with open("recipes.json", "r") as f:
+        recipes = json.load(f)
+    with open("harmful_ingredients.json", "r") as f:
+        harmful = json.load(f)
+    with open("pet_behaviors.json", "r") as f:
+        behaviors = json.load(f)
+    return recipes, harmful, behaviors
 
 def main():
-    print("Welcome to PetChef Terminal Version!")
-    recipes = load_json("recipes.json")
-    ingredients_data = load_json("harmful_ingredients.json")
-    behaviors_data = load_json("pet_behaviors.json")
-
+    recipes, harmful, behaviors = load_data()
+    print("🐾 Welcome to PetPal Terminal Version!")
+    pet = input("Do you have a cat or dog? ").lower()
+    
     while True:
-        print("\nChoose an option:")
-        print("1. Upload Food (type meal name)")
-        print("2. Ingredient Checker")
-        print("3. Mood Checker")
-        print("4. Exit")
-
-        choice = input("Option: ")
+        print("\nOptions:")
+        print("1. Food image (enter filename)")
+        print("2. Ingredient checker")
+        print("3. Mood checker")
+        print("4. Quit")
+        choice = input("Choose option (1-4): ")
 
         if choice == "1":
-            food_name = input("Enter food name: ")
-            meal = classify_food(food_name, recipes)
-            if meal:
-                print(f"\nMeal: {meal['meal']}")
-                print(f"Risk: {meal['risk']}")
-                print(f"Pet-Safe Version: {meal['pet_safe_version']}")
-            else:
-                print("Sorry, meal not found in database.")
-
+            filename = input("Enter food image filename (e.g., pizza.jpeg): ")
+            classify_food(filename, recipes)
         elif choice == "2":
-            pet_type = input("Pet type (cats/dogs): ").lower()
-            ingredient = input("Enter ingredient: ")
-            result, explanation = check_ingredient(ingredient, ingredients_data, pet_type)
-            print(f"{ingredient}: {result.upper()} -> {explanation}")
-
+            ingredient = input("Enter ingredient name: ")
+            check_ingredient(ingredient, harmful, pet)
         elif choice == "3":
-            description = input("Describe your pet's behavior: ")
-            mood, suggestion = classify_pet_behavior(description, behaviors_data)
-            print(f"Mood: {mood}\nSuggestion: {suggestion}")
-
+            desc = input("Describe your pet's behavior: ")
+            check_mood(desc, behaviors)
         elif choice == "4":
-            print("Bye!")
+            print("Goodbye!")
             break
-
         else:
-            print("Invalid option!")
+            print("Invalid choice!")
 
 if __name__ == "__main__":
     main()
-
