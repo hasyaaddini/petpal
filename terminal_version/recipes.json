@@ -1,0 +1,105 @@
+{
+  "human_meals_pet_safe": [
+    {
+      "meal": "kimbab",
+      "risk": "contains onion, garlic, processed meats, and sauces",
+      "pet_safe_version": "remove onion and garlic, replace processed meats with plain cooked egg, chicken, or tuna; skip sauces"
+    },
+    {
+      "meal": "burger",
+      "risk": "contains onions, sauces, high-fat cheese, and buns with salt/sugar",
+      "pet_safe_version": "plain cooked meat patty, small amount of plain cheese optional, plain cooked veggies, skip buns and sauces"
+    },
+    {
+      "meal": "pizza",
+      "risk": "contains onion, garlic, processed meats, high salt, cheese",
+      "pet_safe_version": "remove onion and garlic, use small amount of plain cheese, add plain cooked meat or veggies"
+    },
+    {
+      "meal": "ice cream sundae",
+      "risk": "contains chocolate, sugar, regular milk, nuts",
+      "pet_safe_version": "use lactose-free or goat milk ice cream, replace chocolate with carob powder, no nuts or sugar"
+    },
+    {
+      "meal": "tom yum soup",
+      "risk": "spicy chili, garlic, onion, lemongrass, lime juice",
+      "pet_safe_version": "make a mild broth with plain cooked shrimp/chicken, skip spices, garlic, onion, and citrus"
+    },
+    {
+      "meal": "salad bowl",
+      "risk": "dressing may contain onion, garlic, salt, avocado, nuts",
+      "pet_safe_version": "use safe vegetables like cucumber, carrots, lettuce; add plain cooked chicken or egg; skip dressing, avocado, and nuts"
+    },
+    {
+      "meal": "ramen",
+      "risk": "contains onion, garlic, soy sauce, MSG, fatty broth",
+      "pet_safe_version": "plain cooked noodles with cooked chicken or egg, use mild homemade broth, skip seasoning and onions"
+    },
+    {
+      "meal": "fish and chips",
+      "risk": "fried in oil, salted, batter may contain seasoning",
+      "pet_safe_version": "use baked or boiled fish, plain cooked potato slices or steamed veggies, skip oil and salt"
+    },
+    {
+      "meal": "curry rice",
+      "risk": "spices, onion, garlic, chili, coconut milk may be too rich",
+      "pet_safe_version": "plain cooked rice with cooked meat or veggies, skip spices, onion, garlic, and chili"
+    },
+    {
+      "meal": "nasi lemak",
+      "risk": "contains fried anchovies, sambal chili, onion, coconut milk rice high in fat",
+      "pet_safe_version": "use plain cooked rice (no coconut milk), plain cooked egg or chicken, skip sambal and fried anchovies"
+    },
+    {
+      "meal": "spaghetti bolognese",
+      "risk": "onion, garlic, tomato sauce, seasoning",
+      "pet_safe_version": "plain cooked pasta with plain cooked meat, no tomato sauce or seasoning"
+    },
+    {
+      "meal": "tacos",
+      "risk": "onion, garlic, chili, cheese, sauces",
+      "pet_safe_version": "plain cooked meat in soft tortilla, skip onion, garlic, chili, and sauces"
+    },
+    {
+      "meal": "mashed potatoes with gravy",
+      "risk": "contains butter, milk, salt, onion in gravy",
+      "pet_safe_version": "plain boiled potatoes mashed with a little water, skip butter, milk, and gravy"
+    },
+    {
+      "meal": "fried chicken",
+      "risk": "breaded and fried with salt, oil, and spices",
+      "pet_safe_version": "plain cooked or baked chicken without breading or spices"
+    },
+    {
+      "meal": "sushi rolls",
+      "risk": "raw fish may contain parasites, sauces may contain onion or soy sauce, avocado",
+      "pet_safe_version": "use cooked fish, skip sauces and avocado, plain rice and nori is safe in small amounts"
+    },
+    {
+      "meal": "pancakes with syrup",
+      "risk": "contains sugar, butter, syrup, chocolate",
+      "pet_safe_version": "plain cooked pancake with water or goat milk, skip syrup, sugar, and chocolate"
+    },
+    {
+      "meal": "fried rice",
+      "risk": "contains onion, garlic, soy sauce, oil, sometimes egg or processed meat",
+      "pet_safe_version": "plain cooked rice with cooked vegetables and plain cooked meat, no onion, garlic, soy sauce, or oil"
+    },
+    {
+      "meal": "quiche",
+      "risk": "contains cheese, milk, onion, garlic, pastry",
+      "pet_safe_version": "plain cooked egg with cooked veggies or meat, skip cheese, milk, onion, and pastry"
+    },
+    {
+      "meal": "burrito",
+      "risk": "contains onion, garlic, chili, cheese, beans may cause gas",
+      "pet_safe_version": "plain cooked meat with plain rice in tortilla, skip beans, onion, garlic, cheese, and spices"
+    },
+    {
+      "meal": "stir-fried noodles",
+      "risk": "contains onion, garlic, soy sauce, oil, chili",
+      "pet_safe_version": "plain cooked noodles with cooked meat or vegetables, skip onion, garlic, soy sauce, oil, and chili"
+    }
+  ]
+}
+

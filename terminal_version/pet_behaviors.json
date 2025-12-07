@@ -1,0 +1,35 @@
+{
+  "pet_behaviors": {
+    "maybe_tired_or_sick": {
+      "keywords": ["tired", "sleepy", "loss of appetite", "sneezing", "coughing", "lethargic", "vomiting", "diarrhea", "limping", "shivering"],
+      "mood": "tired or sick",
+      "suggestion": "bring to vet for checkup"
+    },
+    "happy_or_comfortable": {
+      "keywords": ["wagging tail", "slow blinking", "showing belly", "purring", "relaxed posture", "rolling over", "playful", "licking owner", "tail high", "ears forward"],
+      "mood": "happy and comfortable",
+      "suggestion": "play with them, walk outside, or give treats"
+    },
+    "angry_or_scared": {
+      "keywords": ["growling", "fur standing upright", "showing teeth", "airplane ears", "hissing", "tail tucked", "arched back", "whining", "lunging", "stiff body posture"],
+      "mood": "angry or scared",
+      "suggestion": "give space, avoid sudden movements, calm environment"
+    },
+    "anxious_or_nervous": {
+      "keywords": ["panting excessively", "pacing", "trembling", "hiding", "licking lips", "whining", "ears back"],
+      "mood": "anxious or nervous",
+      "suggestion": "comfort them, provide a safe space, avoid stressful situations"
+    },
+    "bored_or_needs_stimulation": {
+      "keywords": ["digging", "chewing furniture", "yawning repeatedly", "restless", "scratching excessively"],
+      "mood": "bored or needs stimulation",
+      "suggestion": "give toys, playtime, or training exercises"
+    },
+    "hungry_or_food_interested": {
+      "keywords": ["pawing at food bowl", "meowing near food", "sniffing constantly", "licking lips"],
+      "mood": "hungry or interested in food",
+      "suggestion": "feed appropriate portion or provide healthy treats"
+    }
+  }
+}
+

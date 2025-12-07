@@ -1,0 +1,55 @@
+{
+  "cats": {
+    "great": {
+      "cooked chicken": "high in protein, easy to digest",
+      "cooked turkey": "high in protein, supports muscle health",
+      "cooked fish": "rich in omega-3 fatty acids, supports skin and coat",
+      "cooked eggs": "good source of protein and essential amino acids",
+      "pumpkin": "supports digestion and fiber intake"
+    },
+    "neutral": [
+      "cheese",
+      "cooked rice",
+      "cooked pasta",
+      "carrots",
+      "peas",
+      "apples without seeds"
+    ],
+    "dangerous": {
+      "chocolate": "contains theobromine, toxic to cats",
+      "onion/garlic/chives": "can cause anemia",
+      "grapes/raisins": "can cause kidney failure",
+      "alcohol": "toxic even in small amounts",
+      "raw fish/eggs": "risk of bacteria or thiamine deficiency",
+      "bones": "risk of choking or internal injury"
+    }
+  },
+  "dogs": {
+    "great": {
+      "cooked chicken": "high in protein, supports muscle health",
+      "cooked turkey": "high in protein, easy to digest",
+      "salmon": "rich in omega-3 fatty acids, supports skin and coat",
+      "carrots": "low-calorie snack, good for teeth",
+      "green beans": "high in fiber, low calorie",
+      "apples without seeds": "vitamins and fiber",
+      "eggs": "good source of protein and essential amino acids"
+    },
+    "neutral": [
+      "cheese",
+      "rice",
+      "pasta",
+      "peanut butter without xylitol",
+      "oatmeal"
+    ],
+    "dangerous": {
+      "chocolate": "contains theobromine, toxic to dogs",
+      "grapes/raisins": "can cause kidney failure",
+      "onion/garlic/chives": "can cause anemia",
+      "alcohol": "toxic even in small amounts",
+      "xylitol": "can cause insulin release and liver failure",
+      "macadamia nuts": "can cause weakness, vomiting, and tremors",
+      "cooked bones": "risk of choking or internal injury"
+    }
+  }
+}
+
