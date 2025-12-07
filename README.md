@@ -41,11 +41,3 @@ The project has **two versions**:
 - **Audio playback** for a cheerful experience  
 - **Randomization** for recipes and music suggestions 
 
----
-
-## ⚙️ Setup & Installation
-
-### Terminal Version
-1. Install Python dependencies:  
-```bash
-pip install -r requirements.txt
