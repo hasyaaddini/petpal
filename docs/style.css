@@ -1,24 +1,4 @@
-body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #fef6e4;
-    text-align: center;
-    color: #333;
-}
-
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-family: 'Press Start 2P', cursive;
-    cursor: pointer;
-}
-
-.hidden {
-    display: none;
-}
-
-input, textarea {
-    padding: 10px;
-    font-size: 14px;
-    width: 300px;
-    margin: 10px;
-}
+body { font-family: 'Comic Sans MS', cursive, sans-serif; background-color: #fffbf0; text-align: center; }
+button { margin: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 10px; background-color: #ffcccb; }
+input, textarea { margin: 5px; padding: 5px; width: 300px; border-radius: 5px; }
+#foodResult, #ingredientResult, #moodResult { margin-top: 15px; font-weight: bold; }

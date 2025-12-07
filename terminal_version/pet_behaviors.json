@@ -3,33 +3,82 @@
     "maybe_tired_or_sick": {
       "keywords": ["tired", "sleepy", "loss of appetite", "sneezing", "coughing", "lethargic", "vomiting", "diarrhea", "limping", "shivering"],
       "mood": "tired or sick",
-      "suggestion": "bring to vet for checkup"
+      "suggestion": "bring to vet for checkup",
+      "music": {
+        "title": "Laufey - Let You Break My Heart Again",
+        "link": "https://youtu.be/NLphEFOyoqM?si=C5wtmnxv_5KajAwc"
+      },
+      "snack": {
+        "title": "Catnip Plant",
+        "link": "https://link.coupang.com/a/dbYUhV"
+      }
     },
     "happy_or_comfortable": {
       "keywords": ["wagging tail", "slow blinking", "showing belly", "purring", "relaxed posture", "rolling over", "playful", "licking owner", "tail high", "ears forward"],
       "mood": "happy and comfortable",
-      "suggestion": "play with them, walk outside, or give treats"
+      "suggestion": "play with them, walk outside, or give treats",
+      "music": {
+        "title": "Laufey - Valentine",
+        "link": "https://youtu.be/tyKu0uZS86Q?si=s346QoNDsEhTGwOh"
+      },
+      "snack": {
+        "title": "Da Bird & Refills",
+        "link": "https://link.coupang.com/a/dbYSrX"
+      }
     },
     "angry_or_scared": {
       "keywords": ["growling", "fur standing upright", "showing teeth", "airplane ears", "hissing", "tail tucked", "arched back", "whining", "lunging", "stiff body posture"],
       "mood": "angry or scared",
-      "suggestion": "give space, avoid sudden movements, calm environment"
+      "suggestion": "give space, avoid sudden movements, calm environment",
+      "music": {
+        "title": "Laufey - Tough Luck",
+        "link": "https://youtu.be/9q71ywEqJjA?si=PnFjmgex81zsLhVL"
+      },
+      "snack": {
+        "title": "Catnip Ball",
+        "link": "https://link.coupang.com/a/dbYQjg"
+      }
     },
     "anxious_or_nervous": {
       "keywords": ["panting excessively", "pacing", "trembling", "hiding", "licking lips", "whining", "ears back"],
       "mood": "anxious or nervous",
-      "suggestion": "comfort them, provide a safe space, avoid stressful situations"
+      "suggestion": "comfort them, provide a safe space, avoid stressful situations",
+      "music": {
+        "title": "Laufey - Lover Girl",
+        "link": "https://youtu.be/obLSGG-oEyw?si=7mbkS7dkEria-ZDO"
+      },
+      "snack": {
+        "title": "Catnip Ball",
+        "link": "https://link.coupang.com/a/dbYQjg"
+      }
     },
     "bored_or_needs_stimulation": {
       "keywords": ["digging", "chewing furniture", "yawning repeatedly", "restless", "scratching excessively"],
       "mood": "bored or needs stimulation",
-      "suggestion": "give toys, playtime, or training exercises"
+      "suggestion": "give toys, playtime, or training exercises",
+      "music": {
+        "title": "Laufey - Like The Movies",
+        "link": "https://youtu.be/q0fnqat88IQ?si=i1_Vm7umnwknZk8c"
+      },
+      "snack": {
+        "title": "Interactive Toy",
+        "link": "https://link.coupang.com/a/dbYSrX"
+      }
     },
     "hungry_or_food_interested": {
       "keywords": ["pawing at food bowl", "meowing near food", "sniffing constantly", "licking lips"],
       "mood": "hungry or interested in food",
-      "suggestion": "feed appropriate portion or provide healthy treats"
+      "suggestion": "feed appropriate portion or provide healthy treats",
+      "music": {
+        "title": "Laufey - Someone New",
+        "link": "https://youtu.be/RldhR-Yu_W8?si=LUvsdRZYj1BpU_Nw"
+      },
+      "snack": {
+        "title": "Healthy Treat",
+        "link": "https://link.coupang.com/a/dbYJLS"
+      }
     }
   }
 }
+
 

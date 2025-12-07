@@ -2,53 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PetPal — Pet-Safe Recipes & Mood Checker</title>
+    <title>PetPal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>🐾 PetPal</h1>
+    <div id="app">
+        <h1>🐾 Welcome to PetPal! 🐾</h1>
 
-    <div id="home">
-        <button onclick="choosePet('cats')">Cats 🐱</button>
-        <button onclick="choosePet('dogs')">Dogs 🐶</button>
-        <button onclick="showTutorial()">Tutorial ❓</button>
+        <div id="home">
+            <button onclick="choosePet('cat')">Cats</button>
+            <button onclick="choosePet('dog')">Dogs</button>
+        </div>
+
+        <div id="options" style="display:none;">
+            <h2 id="petTitle"></h2>
+            <button onclick="showUpload()">Upload Food Image</button>
+            <button onclick="showIngredient()">Ingredient Checker</button>
+            <button onclick="showMood()">Mood Checker</button>
+        </div>
+
+        <div id="foodUpload" style="display:none;">
+            <input type="file" id="foodFile">
+            <button onclick="classifyFood()">Classify Food</button>
+            <div id="foodResult"></div>
+        </div>
+
+        <div id="ingredientCheck" style="display:none;">
+            <input type="text" id="ingredientInput" placeholder="e.g., garlic">
+            <button onclick="checkIngredient()">Check</button>
+            <div id="ingredientResult"></div>
+        </div>
+
+        <div id="moodCheck" style="display:none;">
+            <textarea id="moodInput" placeholder="Describe your pet's behavior..."></textarea>
+            <button onclick="checkMood()">Check Mood</button>
+            <div id="moodResult"></div>
+        </div>
     </div>
-
-    <div id="options" class="hidden">
-        <button onclick="showFoodUpload()">Upload Food Image</button>
-        <button onclick="showIngredientChecker()">Ingredient Checker</button>
-        <button onclick="showMoodChecker()">Mood Checker</button>
-        <button onclick="goHome()">Back Home</button>
-    </div>
-
-    <div id="food-upload" class="hidden">
-        <input type="file" id="foodImage">
-        <button onclick="classifyFood()">Check Food</button>
-        <div id="foodResult"></div>
-        <button onclick="showOptions()">Back</button>
-    </div>
-
-    <div id="ingredient-checker" class="hidden">
-        <input type="text" id="ingredientInput" placeholder="e.g., onions, cheese, chocolate">
-        <button onclick="checkIngredient()">Check Ingredient</button>
-        <div id="ingredientResult"></div>
-        <button onclick="showOptions()">Back</button>
-    </div>
-
-    <div id="mood-checker" class="hidden">
-        <textarea id="moodInput" placeholder="e.g., my cat is slow blinking and purring"></textarea>
-        <button onclick="checkMood()">Check Mood</button>
-        <div id="moodResult"></div>
-        <button onclick="showOptions()">Back</button>
-    </div>
-
-    <div id="tutorial" class="hidden">
-        <p>Click buttons to navigate: choose pet → choose option → follow instructions!</p>
-        <button onclick="goHome()">Back Home</button>
-    </div>
-
-    <audio id="audioPlayer" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" autoplay></audio>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

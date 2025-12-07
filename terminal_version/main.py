@@ -1,42 +1,51 @@
+import os
 import json
-from utils import classify_food, check_ingredient, check_mood
+from utils import classify_food, check_ingredient, detect_pet_mood
 
-def load_data():
-    with open("recipes.json", "r") as f:
-        recipes = json.load(f)
-    with open("harmful_ingredients.json", "r") as f:
-        harmful = json.load(f)
-    with open("pet_behaviors.json", "r") as f:
-        behaviors = json.load(f)
-    return recipes, harmful, behaviors
+DATA_DIR = os.path.dirname(__file__)
+RECIPES_FILE = os.path.join(DATA_DIR, "recipes.json")
+HARMFUL_FILE = os.path.join(DATA_DIR, "harmful_ingredients.json")
+BEHAVIOR_FILE = os.path.join(DATA_DIR, "pet_behaviors.json")
+REF_IMG_DIR = os.path.join(DATA_DIR, "reference_images")
+
+with open(RECIPES_FILE) as f:
+    recipes = json.load(f)
+
+with open(HARMFUL_FILE) as f:
+    harmful = json.load(f)
+
+with open(BEHAVIOR_FILE) as f:
+    behaviors = json.load(f)
 
 def main():
-    recipes, harmful, behaviors = load_data()
-    print("🐾 Welcome to PetPal Terminal Version!")
-    pet = input("Do you have a cat or dog? ").lower()
-    
-    while True:
-        print("\nOptions:")
-        print("1. Food image (enter filename)")
-        print("2. Ingredient checker")
-        print("3. Mood checker")
-        print("4. Quit")
-        choice = input("Choose option (1-4): ")
+    print("🐾 Welcome to PetPal! 🐾")
+    pet = input("Select your pet (cat/dog): ").lower()
+    print("\nOptions:")
+    print("1. Upload Food Image")
+    print("2. Ingredient Checker")
+    print("3. Mood Checker")
+    choice = input("Enter option (1/2/3): ")
 
-        if choice == "1":
-            filename = input("Enter food image filename (e.g., pizza.jpeg): ")
-            classify_food(filename, recipes)
-        elif choice == "2":
-            ingredient = input("Enter ingredient name: ")
-            check_ingredient(ingredient, harmful, pet)
-        elif choice == "3":
-            desc = input("Describe your pet's behavior: ")
-            check_mood(desc, behaviors)
-        elif choice == "4":
-            print("Goodbye!")
-            break
+    if choice == "1":
+        filepath = input("Upload food image path: ")
+        food_name = classify_food(filepath, REF_IMG_DIR, recipes)
+        print(f"\nDetected food: {food_name}")
+        if food_name in recipes["human_meals_pet_safe"]:
+            for meal in recipes["human_meals_pet_safe"]:
+                if meal["meal"].lower() == food_name.lower():
+                    print(f"Risk: {meal['risk']}")
+                    print(f"Pet-safe version: {meal['pet_safe_version']}")
+                    break
         else:
-            print("Invalid choice!")
+            print("Unknown food. No recommendation available.")
+    elif choice == "2":
+        ingredient = input("Enter ingredient: ").lower()
+        check_ingredient(ingredient, pet, harmful)
+    elif choice == "3":
+        description = input("Describe your pet's behavior: ").lower()
+        detect_pet_mood(description, behaviors, pet)
+    else:
+        print("Invalid choice.")
 
 if __name__ == "__main__":
     main()

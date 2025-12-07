@@ -1,112 +1,86 @@
-let petType = "";
+let pet = "";
 
-async function choosePet(type){
-    petType = type;
-    document.getElementById('home').classList.add('hidden');
-    document.getElementById('options').classList.remove('hidden');
+async function choosePet(selected) {
+    pet = selected;
+    document.getElementById("home").style.display = "none";
+    document.getElementById("options").style.display = "block";
+    document.getElementById("petTitle").innerText = `You chose: ${pet}`;
 }
 
-function showOptions(){
-    document.getElementById('food-upload').classList.add('hidden');
-    document.getElementById('ingredient-checker').classList.add('hidden');
-    document.getElementById('mood-checker').classList.add('hidden');
-    document.getElementById('tutorial').classList.add('hidden');
-    document.getElementById('options').classList.remove('hidden');
+function showUpload() {
+    hideAll();
+    document.getElementById("foodUpload").style.display = "block";
 }
 
-function goHome(){
-    document.getElementById('options').classList.add('hidden');
-    document.getElementById('home').classList.remove('hidden');
+function showIngredient() {
+    hideAll();
+    document.getElementById("ingredientCheck").style.display = "block";
 }
 
-function showTutorial(){
-    document.getElementById('home').classList.add('hidden');
-    document.getElementById('tutorial').classList.remove('hidden');
+function showMood() {
+    hideAll();
+    document.getElementById("moodCheck").style.display = "block";
 }
 
-function showFoodUpload(){
-    showOptions();
-    document.getElementById('options').classList.add('hidden');
-    document.getElementById('food-upload').classList.remove('hidden');
+function hideAll() {
+    document.getElementById("foodUpload").style.display = "none";
+    document.getElementById("ingredientCheck").style.display = "none";
+    document.getElementById("moodCheck").style.display = "none";
 }
 
-function showIngredientChecker(){
-    showOptions();
-    document.getElementById('options').classList.add('hidden');
-    document.getElementById('ingredient-checker').classList.remove('hidden');
+// Load JSON data
+async function loadJSON(path) {
+    const res = await fetch(path);
+    return await res.json();
 }
 
-function showMoodChecker(){
-    showOptions();
-    document.getElementById('options').classList.add('hidden');
-    document.getElementById('mood-checker').classList.remove('hidden');
-}
-
-async function classifyFood(){
-    let fileInput = document.getElementById('foodImage').files[0];
-    let resultDiv = document.getElementById('foodResult');
-    if(!fileInput){
-        resultDiv.innerHTML = "Please upload a food image!";
-        return;
-    }
-    let filename = fileInput.name.toLowerCase();
-    let recipes = await fetch('data/recipes.json').then(res => res.json());
-    let found = recipes.human_meals_pet_safe.find(r => filename.includes(r.meal.toLowerCase()));
-    if(found){
-        resultDiv.innerHTML = `<p>Detected food: <b>${found.meal}</b></p>
-                               <p>Risk: ${found.risk}</p>
-                               <p>Pet-safe version: ${found.pet_safe_version}</p>`;
+async function classifyFood() {
+    const fileInput = document.getElementById("foodFile");
+    const fileName = fileInput.files[0].name.toLowerCase();
+    const recipes = await loadJSON("data/recipes.json");
+    let detected = "unknown";
+    recipes["human_meals_pet_safe"].forEach(meal => {
+        if (fileName.includes(meal.meal.toLowerCase())) detected = meal.meal;
+    });
+    let resultDiv = document.getElementById("foodResult");
+    if (detected !== "unknown") {
+        let mealInfo = recipes["human_meals_pet_safe"].find(m => m.meal === detected);
+        resultDiv.innerHTML = `<p>Detected: ${detected}</p>
+                               <p>Risk: ${mealInfo.risk}</p>
+                               <p>Pet-safe: ${mealInfo.pet_safe_version}</p>`;
     } else {
-        resultDiv.innerHTML = "Unknown food!";
+        resultDiv.innerHTML = "Unknown food.";
     }
 }
 
-async function checkIngredient(){
-    let input = document.getElementById('ingredientInput').value.toLowerCase();
-    let resultDiv = document.getElementById('ingredientResult');
-    if(!input){
-        resultDiv.innerHTML = "Please type an ingredient!";
-        return;
-    }
-    let data = await fetch('data/harmful_ingredients.json').then(res => res.json());
-    let safe = data[petType].great;
-    let neutral = data[petType].neutral;
-    let dangerous = data[petType].dangerous;
-    if(input in safe){
-        resultDiv.innerHTML = `${input} is great! Reason: ${safe[input]}`;
-    } else if(neutral.includes(input)){
-        resultDiv.innerHTML = `${input} is neutral`;
-    } else if(input in dangerous){
-        resultDiv.innerHTML = `${input} is dangerous! Reason: ${dangerous[input]}`;
-    } else {
-        resultDiv.innerHTML = `${input} not found in database`;
-    }
+async function checkIngredient() {
+    const ingredient = document.getElementById("ingredientInput").value.toLowerCase();
+    const harmful = await loadJSON("data/harmful_ingredients.json");
+    let resultDiv = document.getElementById("ingredientResult");
+    const petData = harmful[pet + "s"];
+    if (petData.great[ingredient]) resultDiv.innerText = "Safe! " + petData.great[ingredient];
+    else if (petData.neutral.includes(ingredient)) resultDiv.innerText = "Neutral, small amounts okay.";
+    else if (petData.dangerous[ingredient]) resultDiv.innerText = "Dangerous! " + petData.dangerous[ingredient];
+    else resultDiv.innerText = "Unknown ingredient.";
 }
 
-async function checkMood(){
-    let input = document.getElementById('moodInput').value.toLowerCase();
-    let resultDiv = document.getElementById('moodResult');
-    if(!input){
-        resultDiv.innerHTML = "Please describe your pet's behavior!";
-        return;
-    }
-    let data = await fetch('data/pet_behaviors.json').then(res => res.json());
-    let behaviors = data.pet_behaviors;
-    let found = null;
-    for(let key in behaviors){
-        for(let kw of behaviors[key].keywords){
-            if(input.includes(kw)){
-                found = behaviors[key];
-                break;
-            }
+async function checkMood() {
+    const description = document.getElementById("moodInput").value.toLowerCase();
+    const behaviors = await loadJSON("data/pet_behaviors.json");
+    let resultDiv = document.getElementById("moodResult");
+
+    for (const moodKey in behaviors.pet_behaviors) {
+        const mood = behaviors.pet_behaviors[moodKey];
+        if (mood.keywords.some(kw => description.includes(kw))) {
+            resultDiv.innerHTML = `<p>Mood: ${mood.mood}</p>
+                                   <p>Suggestion: ${mood.suggestion}</p>
+                                   <p>Music: <a href="${mood.music.link}" target="_blank">${mood.music.title}</a></p>
+                                   <p>Snack: <a href="${mood.snack.link}" target="_blank">${mood.snack.title}</a></p>`;
+            // Autoplay music
+            const audio = new Audio(mood.music.link);
+            audio.play();
+            return;
         }
-        if(found) break;
     }
-    if(found){
-        resultDiv.innerHTML = `<p>Mood detected: <b>${found.mood}</b></p>
-                               <p>Suggestion: ${found.suggestion}</p>`;
-    } else {
-        resultDiv.innerHTML = "No mood detected.";
-    }
+    resultDiv.innerText = "Could not determine mood.";
 }
-
