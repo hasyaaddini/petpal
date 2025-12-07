@@ -5,7 +5,7 @@ petpal
 
 **Live Demo (Web UI):** [Open in Browser](https://hasyaaddini.github.io/petpal/)  
 
-PetPal is a fun and interactive program for pet owners who want to share meals with their cats or dogs **safely**. Some human foods are toxic to pets, so PetPal provides **pet-safe recipe alternatives** while keeping the food visually similar. It also includes a **mood checker** to suggest activities, treats, songs, or care based on your pet’s behavior.  
+PetPal is a simple and interactive program for pet owners who want to share meals with their cats or dogs **safely**. Some human foods are toxic to pets, so PetPal provides **pet-safe recipe alternatives** while keeping the food visually similar; so your little friend still can have quality time sharing food! It also includes a **mood checker** to suggest activities, treats, songs, or care based on your pet’s behavior.  
 
 The project has **two versions**:  
 - **Terminal Version:** Run directly in your command line.  
